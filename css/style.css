@@ -6,3 +6,11 @@
 .e{
     background-color: bisque;
 }
+
+td{
+    border:3px solid black;
+}
+
+table{
+    border-collapse: collapse ;
+}
