@@ -144,4 +144,5 @@ locationData.appendChild(totalCell);
  }
 
  createTotalRow();
+ 
 ///////////////////////////////////////
