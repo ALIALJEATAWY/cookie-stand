@@ -2,7 +2,7 @@
 
 /////////////////global////////////////
  var hours =['6 am','7 am','8 am','9 am','10 am','11 am','12 pm','1 pm','2 pm','3 pm','4 pm','5 pm','6 pm','7 pm','8 pm'];
- 
+ var alllocations= [];
  
  function randomnumbercus (min, max) {
    return Math.floor(Math.random() * (max - min + 1) + min);
@@ -46,10 +46,12 @@ SalmonCookies.prototype.calccustomersperhour = function () {
       var cookiesperhour = Math.ceil(this.customersperhour[cook]*this.avgcookiespurchased);
       this.cookiesperhour.push(cookiesperhour);
       this.totalcookies = this.totalcookies + cookiesperhour;
-      totalofcolumn[i] = totalofcolumn[i] + this.cookiesperhour[i];
-      alltotal = alltotal + this.cookiesperhour[i];
+      totalofcolumn[cook] = totalofcolumn[cook] + this.cookiesperhour[cook];
+      console.log(totalofcolumn[cook]);
+      alltotal = alltotal + this.cookiesperhour[cook];
+      // console.log(cookiesperhour);
    }
-   console.log(this.totalcookies);
+   
 };
 
 /////////////////////////////////////////
@@ -94,6 +96,7 @@ var columntotalcell;
 for(var a = 0; a< hours.length; a++){
    columntotalcell = document.createElement('th');
    columntotalcell.textContent = totalofcolumn[a];
+   console.log(totalofcolumn);
    totalRow.appendChild(columntotalcell);
 }
 var alltotalcell = document.createElement('th');
@@ -105,7 +108,7 @@ totalRow.appendChild(alltotalcell);
 
 
 
-///////////////////////////////////////////////
+//////////////////////// prototype ///////////////////////
 
 SalmonCookies.prototype.render = function(){
 //   var divo = document.getElementById('locations');
@@ -129,6 +132,8 @@ totalCell.textContent = this.totalcookies;
 locationData.appendChild(totalCell);
 };
 
+
+
 ///////////////// locations ///////////////////
  var seattle = new SalmonCookies ('Seattle', 23, 65, 6.3);
  var tokyo = new SalmonCookies ('Tokyo', 3, 24, 1.2);
@@ -145,4 +150,4 @@ locationData.appendChild(totalCell);
 
  createTotalRow();
  
-///////////////////////////////////////
+/////////////////////////////////////////////
