@@ -1,26 +1,31 @@
 'use strict';
 
+
+
 /////////////////global////////////////
- var hours =['6 am','7 am','8 am','9 am','10 am','11 am','12 pm','1 pm','2 pm','3 pm','4 pm','5 pm','6 pm','7 pm','8 pm'];
- var alllocations= [];
- 
- function randomnumbercus (min, max) {
-   return Math.floor(Math.random() * (max - min + 1) + min);
+  var hours =['6 am','7 am','8 am','9 am','10 am','11 am','12 pm','1 pm','2 pm','3 pm','4 pm','5 pm','6 pm','7 pm','8 pm'];
+  var alllocations= [];
+  function randomnumbercus (min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
   }
   var places = [];
   var alltotal=0;
- var divo;
- var locationtable;
-var totalofcolumn;
-dotable();
-creatHeader();
-totalofcolumn = [];
-for(var i = 0; i < hours.length; i++){
-   
+  var divo;
+  var locationtable;
+  var totalofcolumn;
+  dotable();
+  creatHeader();
+  totalofcolumn = [];
+  for(var i = 0; i < hours.length; i++){
    totalofcolumn.push(0);
-
 }
+
+
 //////////////////////////////////////
+
+
+
+
 ////////// constructor////////////////
 function SalmonCookies(locationcookies, mincustperhour, maxcustperhour, avgcookiespurchased){
  this.locationcookies = locationcookies;
@@ -32,6 +37,11 @@ function SalmonCookies(locationcookies, mincustperhour, maxcustperhour, avgcooki
  this.totalcookies = 0;
  places.push(this);
 }
+//////////////////////////////////////
+
+
+
+
  
 /////////////////// prototype function //////////////////////
 
@@ -55,6 +65,7 @@ SalmonCookies.prototype.calccustomersperhour = function () {
 };
 
 /////////////////////////////////////////
+
 
 
 
@@ -111,9 +122,6 @@ totalRow.appendChild(alltotalcell);
 //////////////////////// prototype ///////////////////////
 
 SalmonCookies.prototype.render = function(){
-//   var divo = document.getElementById('locations');
-//   var locationsection = document.createElement('section');
-  
   var locationData = document.createElement('tr');
  locationtable.appendChild(locationData);
 
@@ -131,6 +139,11 @@ var totalCell = document.createElement('td');
 totalCell.textContent = this.totalcookies;
 locationData.appendChild(totalCell);
 };
+
+
+
+//////////////////////////////////////
+
 
 
 
