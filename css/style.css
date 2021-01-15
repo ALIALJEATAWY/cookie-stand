@@ -11,6 +11,13 @@ td{
     border:3px solid black;
 }
 
+tr{
+    border: 3px solid black;
+}
+
+th{
+    border: 3px solid black;
+}
 table{
     border-collapse: collapse ;
     
