@@ -68,10 +68,11 @@ SalmonCookies.prototype.calccustomersperhour = function () {
       this.cookiesperhour.push(cookiesperhour);
       this.totalcookies = this.totalcookies + cookiesperhour;
       totalofcolumn[cook] = totalofcolumn[cook] + this.cookiesperhour[cook];
-      console.log(totalofcolumn[cook]);
+      // console.log(totalofcolumn[cook]);
       alltotal = alltotal + this.cookiesperhour[cook];
       // console.log(cookiesperhour);
    }
+   
    
 };
 
@@ -98,7 +99,7 @@ function creatHeader(){
    locationtable.appendChild(HeaderRow);
 
    var emptyCell = document.createElement('th');
-   HeaderRow.append(emptyCell);
+   HeaderRow.appendChild(emptyCell);
 
    var hourCell;
    for(var i = 0; i < hours.length; i++){
@@ -114,7 +115,7 @@ function creatHeader(){
 
 
 
-//////////////////////// prototype ///////////////////////
+//////////////////////// prototype render table ///////////////////////
 var nameCell;
 SalmonCookies.prototype.render = function(){
   var locationData = document.createElement('tr');
@@ -154,6 +155,8 @@ function createTotalRow(){
       console.log(totalofcolumn);
       totalRow.appendChild(columntotalcell);
    }
+
+   
    var alltotalcell = document.createElement('th');
    alltotalcell.textContent = alltotal;
    totalRow.appendChild(alltotalcell);
@@ -167,7 +170,7 @@ function createTotalRow(){
 
 ///////////////// locations ///////////////////
 
- 
+
  
 for (var a = 0; a < places.length; a++ ){
    places[a].calccustomersperhour();
@@ -182,7 +185,6 @@ for (var a = 0; a < places.length; a++ ){
 
 
 createTotalRow();
-
 
 
 ///////// form /////////
@@ -202,32 +204,38 @@ createTotalRow();
    console.log(newavareg);
 
    
+   
    var newplaces = new SalmonCookies (newplace, newminimum, newmaximum, newavareg);
 console.log('ali'+newplaces);
-   locationtable.innerHTML = '';
-   nameCell.innerHTML = '';
 
+   // locationtable.innerHTML = '';
+   // nameCell.innerHTML = '';
   
-   creatHeader();
-   console.log('ali'+places);
+  newplaces.calccustomersperhour();
+  newplaces.calccookiesperhour();
+  newplaces.render();
+   // creatHeader();
+   // console.log('ali'+places);
    //  for (var a = 0; a < places.length; a++ ){
-
+      
    //    console.log(places[a].calccustomersperhour());
    //  }
 
 
-   for (var a = 0; a < places.length; a++ ){
-      places[a].cookiesperhour = [];
-
-      places[a].calccustomersperhour();
-      places[a].calccookiesperhour();
-      places[a].render();
+   // for (var a = 0; a < places.length; a++ ){
+   //    places[a].cookiesperhour = [];
+   //    places[a].calccustomersperhour();
+   //    places[a].calccookiesperhour();
+   //    places[a].render();
       
-   }
-   
-   
+   // }
+
+  
+  
    createTotalRow();
+  
    
 }
+
 
 /////////////////////////////////////////////
